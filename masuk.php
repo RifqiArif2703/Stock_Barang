@@ -54,6 +54,10 @@ require 'cek.php';
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                             Barang Keluar
                         </a>
+                        <a class="nav-link" href="admin.php">
+                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                            Kelola Admin
+                        </a>
                         <a class="nav-link" href="logout.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                             Logout
@@ -86,6 +90,7 @@ require 'cek.php';
                                         <th>Nama Barang</th>
                                         <th>Stock</th>
                                         <th>Barista</th>
+                                        <th>Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -115,10 +120,39 @@ require 'cek.php';
                                                 </button>
                                             </td>
                                         </tr>
+
+                                           <!-- Edit Modal Modal -->
+                                           <div class="modal fade" id="edit<?= $idb; ?>">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <!-- Modal Header -->
+                                                    <div class="modal-header">
+                                                        <h4 class="modal-title">Edit Barang</h4>
+                                                        <button type="button" class="close"
+                                                            data-dismiss="modal">&times;</button>
+                                                    </div>
+
+                                                    <!-- Modal body -->
+                                                    <form method="post">
+                                                        <div class="modal-body">
+                                                            <input type="hidden" name="idb" value="<?= $idb; ?>">
+                                                            <input type="text" name="namabarang" value="<?= $namabarang; ?>"
+                                                                class="form-control" required>
+                                                            <br>
+                                                            <input type="text" name="deskripsi" value="<?= $deskripsi; ?>"
+                                                                class="form-control" required>
+                                                            <br>
+                                                            <button type="submit" class="btn btn-primary"
+                                                                name="updatebarang">Submit</button>
+                                                        </div>
+
+
+                                                        
+
                                         <?php
                                         };
+
                                     ?>
-                              
                                 </tbody>
                             </table>
                         </div>

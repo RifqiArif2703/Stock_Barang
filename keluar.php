@@ -54,7 +54,10 @@ require 'cek.php';
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                             Barang Keluar
                         </a>
-                        
+                        <a class="nav-link" href="admin.php">
+                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                            Kelola Admin
+                        </a>
                         <a class="nav-link" href="logout.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                             Logout
@@ -92,7 +95,22 @@ require 'cek.php';
                                 <tbody>
 
                                 <?php
-                               ?>
+                                    $ambilsemuadatastock = mysqli_query($conn, "select * from keluar k, stock s where s.idbarang = k.idbarang");
+                                    while ($data = mysqli_fetch_array($ambilsemuadatastock)) {
+                                        $tanggal = $data['tanggal'];
+                                        $namabarang = $data['namabarang'];
+                                        $qty = $data['qty'];
+                                        $penerima = $data['penerima'];
+                                        ?>
+                                        <tr>
+                                            <td><?= $tanggal?></td>
+                                            <td><?= $namabarang ?></td>
+                                            <td><?= $qty ?></td>
+                                            <td><?= $penerima ?></td>
+                                        </tr>
+                                        <?php
+                                    };
+                                    ?>
 
                                 </tbody>
                             </table>
