@@ -118,5 +118,57 @@ $conn = mysqli_connect("localhost", "root", "", "stockbarang");
             header('location:admin.php');
         }
     }
+// Query data barang masuk
+$ambilsemuadatastock = mysqli_query($conn, "SELECT m.idbarang, s.namabarang, m.tanggal, m.qty, m.keterangan FROM masuk m, stock s WHERE s.idbarang = m.idbarang");
+
+// Logika Edit Barang Masuk
+if (isset($_POST['updatebarangmasuk'])) {
+    $idbarang = $_POST['idbarang'];
+    $qtybaru = $_POST['qty'];
+    $keteranganbaru = $_POST['keterangan'];
+
+    $cekstocksekarang = mysqli_query($conn, "SELECT * FROM stock WHERE idbarang='$idbarang'");
+    $ambildata = mysqli_fetch_array($cekstocksekarang);
+    $stocksekarang = $ambildata['stock'];
+
+    $cekqtylama = mysqli_query($conn, "SELECT * FROM masuk WHERE idbarang='$idbarang'");
+    $ambildatalama = mysqli_fetch_array($cekqtylama);
+    $qtylama = $ambildatalama['qty'];
+
+    $stockbaru = $stocksekarang - $qtylama + $qtybaru;
+
+    $updatestock = mysqli_query($conn, "UPDATE stock SET stock='$stockbaru' WHERE idbarang='$idbarang'");
+    $updatemasuk = mysqli_query($conn, "UPDATE masuk SET qty='$qtybaru', keterangan='$keteranganbaru' WHERE idbarang='$idbarang'");
+
+    if ($updatestock && $updatemasuk) {
+        header('location:masuk.php');
+    } else {
+        echo 'Gagal mengupdate barang masuk';
+    }
+}
+
+// Logika Hapus Barang Masuk
+if (isset($_POST['hapusbarangmasuk'])) {
+    $idbarang = $_POST['idbarang'];
+
+    $cekqty = mysqli_query($conn, "SELECT * FROM masuk WHERE idbarang='$idbarang'");
+    $ambildata = mysqli_fetch_array($cekqty);
+    $qty = $ambildata['qty'];
+
+    $cekstocksekarang = mysqli_query($conn, "SELECT * FROM stock WHERE idbarang='$idbarang'");
+    $ambildatastock = mysqli_fetch_array($cekstocksekarang);
+    $stocksekarang = $ambildatastock['stock'];
+
+    $stockbaru = $stocksekarang - $qty;
+
+    $updatestock = mysqli_query($conn, "UPDATE stock SET stock='$stockbaru' WHERE idbarang='$idbarang'");
+    $hapusmasuk = mysqli_query($conn, "DELETE FROM masuk WHERE idbarang='$idbarang'");
+
+    if ($updatestock && $hapusmasuk) {
+        header('location:masuk.php');
+    } else {
+        echo 'Gagal menghapus barang masuk';
+    }
+}
 
 ?>
