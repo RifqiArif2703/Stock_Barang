@@ -171,4 +171,16 @@ if (isset($_POST['hapusbarangmasuk'])) {
     }
 }
 
+if (isset($_POST['deleteuser'])) {
+    $iduser = $_POST['iduser']; // Ambil iduser dari POST
+
+    // Eksekusi query untuk menghapus data
+    $deleteData = mysqli_query($conn, "DELETE FROM login WHERE iduser = '$iduser'");
+    if ($deleteData) {
+        echo "<script>alert('User berhasil dihapus'); window.location='admin.php';</script>";
+    } else {
+        echo "<script>alert('Gagal menghapus user');</script>";
+    }
+}
+
 ?>
