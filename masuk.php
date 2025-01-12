@@ -117,6 +117,7 @@ if (isset($_POST['deletebarangmasuk'])) {
                                         $namabarang = $data['namabarang'];
                                         $qty = $data['qty'];
                                         $keterangan = $data['keterangan'];
+<<<<<<< HEAD
                                     ?>
                                          <tr>
                                         <td><?= $tanggal ?></td>
@@ -177,6 +178,59 @@ if (isset($_POST['deletebarangmasuk'])) {
                                         </div>
                                     </div>
                                     <?php } ?>
+=======
+                                        ?>
+                                        <tr>
+                                            <td><?= $tanggal?></td>
+                                            <td><?= $namabarang ?></td>
+                                            <td><?= $qty ?></td>
+                                            <td><?= $keterangan ?></td>
+                                            <td>
+                                            <button type="button" class="btn btn-warning" data-toggle="modal"
+                                                    data-target="#edit<?=$idb;?>">
+                                                    Edit
+                                                </button>
+                                                <!-- <input type="hidden" name="idbarangygmaudihapus" value="<?= $idb; ?>"> -->
+                                                <button type="button" class="btn btn-danger" data-toggle="modal"
+                                                    data-target="#delete<?=$idb;?>">
+                                                    Delete
+                                                </button>
+                                            </td>
+                                        </tr>
+
+                                           <!-- Edit Modal Modal -->
+                                           <div class="modal fade" id="edit<?= $idb; ?>">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <!-- Modal Header -->
+                                                    <div class="modal-header">
+                                                        <h4 class="modal-title">Edit Barang</h4>
+                                                        <button type="button" class="close"
+                                                            data-dismiss="modal">&times;</button>
+                                                    </div>
+
+                                                    <!-- Modal body -->
+                                                    <form method="post">
+                                                        <div class="modal-body">
+                                                            <input type="hidden" name="idb" value="<?= $idb; ?>">
+                                                            <input type="text" name="namabarang" value="<?= $namabarang; ?>"
+                                                                class="form-control" required>
+                                                            <br>
+                                                            <input type="text" name="deskripsi" value="<?= $deskripsi; ?>"
+                                                                class="form-control" required>
+                                                            <br>
+                                                            <button type="submit" class="btn btn-primary"
+                                                                name="updatebarang">Submit</button>
+                                                        </div>
+
+
+                                                        
+
+                                        <?php
+                                        };
+
+                                    ?>
+>>>>>>> 2ff9b808743a74aa03427c47931d9bf853347cb0
                                 </tbody>
                             </table>
                         </div>

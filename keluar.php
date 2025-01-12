@@ -122,14 +122,22 @@ if (isset($_POST['deletebarangkeluar'])) {
                                     </tr>
                                 </thead>
                                 <tbody>
+<<<<<<< HEAD
                                     <?php
                                     $ambilsemuadatakeluar = mysqli_query($conn, "SELECT * FROM keluar k, stock s WHERE s.idbarang = k.idbarang");
                                     while ($data = mysqli_fetch_array($ambilsemuadatakeluar)) {
                                         $idkeluar = $data['idkeluar'];
+=======
+
+                                <?php
+                                    $ambilsemuadatastock = mysqli_query($conn, "select * from keluar k, stock s where s.idbarang = k.idbarang");
+                                    while ($data = mysqli_fetch_array($ambilsemuadatastock)) {
+>>>>>>> 2ff9b808743a74aa03427c47931d9bf853347cb0
                                         $tanggal = $data['tanggal'];
                                         $namabarang = $data['namabarang'];
                                         $qty = $data['qty'];
                                         $penerima = $data['penerima'];
+<<<<<<< HEAD
                                     ?>
                                     <tr>
                                         <td><?= $tanggal ?></td>
@@ -183,6 +191,19 @@ if (isset($_POST['deletebarangkeluar'])) {
                                         </div>
                                     </div>
                                     <?php } ?>
+=======
+                                        ?>
+                                        <tr>
+                                            <td><?= $tanggal?></td>
+                                            <td><?= $namabarang ?></td>
+                                            <td><?= $qty ?></td>
+                                            <td><?= $penerima ?></td>
+                                        </tr>
+                                        <?php
+                                    };
+                                    ?>
+
+>>>>>>> 2ff9b808743a74aa03427c47931d9bf853347cb0
                                 </tbody>
                             </table>
                         </div>

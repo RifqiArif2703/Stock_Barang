@@ -31,12 +31,26 @@ require 'cek.php';
 </head>
 
 <body class="sb-nav-fixed">
+<<<<<<< HEAD
 <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
         <a class="navbar-brand d-flex align-items-center" href="index.php">
             <img src="assets/img/tekoplogo.png" alt="Logo" style="width: 60px; height: 60px; margin-right: 10px;">
             Tekop's Gudang
         </a>
         <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
+=======
+    <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+        <!-- <a class="navbar-brand" href="index.php">Tekop's Gudang</a> -->
+        <div
+            style="display: flex; align-items: center; background-color:rgb(32, 35, 38); color: white; padding: 10px; gap: 15px;">
+            <img src="../assets/img/tekop.png" alt="Logo Tekop" style="height: 50px;">
+            <a style="margin: 0; font-size: 1.2rem; font-weight: 500 ;">Tekop's Gudang</a>
+        </div>
+
+        <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i
+                class="fas fa-bars"></i></button>
+        <!-- Navbar Search-->
+>>>>>>> 2ff9b808743a74aa03427c47931d9bf853347cb0
         <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
             <div class="input-group">
                 <input class="form-control" type="text" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2" />
@@ -53,7 +67,7 @@ require 'cek.php';
                     <div class="nav">
                         <a class="nav-link" href="index.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                            Stock Barang
+                            Dashboard Stock Barang
                         </a>
                         <a class="nav-link" href="masuk.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
